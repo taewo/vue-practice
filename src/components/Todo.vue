@@ -1,5 +1,46 @@
 <template lang="html">
   <div>
+    Todo
+    <Form
+      @myEvent="onSubmit"
+      :initText="abc"/>
+
+    <List
+      :data="todos"
+    />
+  </div>
+</template>
+
+<script>
+import Form from './Form'
+import List from './List'
+export default {
+  components: {
+    Form,
+    List
+  },
+  data () {
+    return {
+      todos: [],
+      abc: '124'
+    }
+  },
+  methods: {
+    onSubmit(vars) {
+      alert(vars)
+      this.todos = this.todos.push(vars)
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+<!-- <template lang="html">
+  <div>
     <Form :name="userData"></Form>
     <List nick="asdf"></List>
   </div>
@@ -29,4 +70,4 @@ export default {
 </script>
 
 <style lang="css">
-</style>
+</style> -->
