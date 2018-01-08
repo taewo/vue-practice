@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    HelloWorld
+    <todo></todo>
+    <!-- <router-view/> -->
   </div>
 </template>
 
 <script>
+import Todo from './components/Todo'
+
 export default {
-  name: 'app',
+  components: {
+    'todo': Todo
+  }
 };
 </script>
 
