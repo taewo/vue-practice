@@ -1,10 +1,53 @@
 <template lang="html">
   <div class="">
+    <Form
+      :handleSubmit="handleSubmit"
+    ></Form>
+    <List
+      :userData="userData"
+    ></List>
+  </div>
+</template>
+
+<script>
+import Form from './Form'
+import List from './List'
+export default {
+  components: {
+    Form,
+    List
+  },
+  data() {
+    return {
+      userData: []
+    }
+  },
+  methods: {
+    handleSubmit(param) {
+      this.userData.push(param)
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+
+
+
+<!-- <template lang="html">
+  <div class="">
     Todo
     <Form
       :handleSubmit="handleSubmit"
+
       @myEvent="taewoong"
+      v-on:myEvent="taewoong"
       @myEvent2="taewoong2"
+      @myCall="callMe"
     ></Form>
     <List
       :data="data"
@@ -31,20 +74,28 @@ export default {
     handleSubmit: function(param) {
       this.data.push(param)
     },
+    makeAlert(param) {
+      alert(param)
+    },
 
     taewoong() {
-      alert('hi')
+      console.log('taewoong hi')
     },
 
     taewoong2(vars) {
-      alert(vars)
+      console.log('taewoong2', vars)
+      this.makeAlert(vars)
+    },
+
+    callMe() {
+      console.log('callME');
     }
   }
 }
 </script>
 
 <style lang="css">
-</style>
+</style> -->
 
 
 

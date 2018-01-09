@@ -1,5 +1,51 @@
 <template lang="html">
   <div class="">
+    <ul>
+      <li v-for="data in datas">
+        {{data.name}} {{data.age}} {{data.address}}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import Vue from 'vue'
+export default {
+  props: [
+    'userData'
+  ],
+  data() {
+    return {
+      datas: null
+    }
+  },
+  watch: {
+    userData() {
+      console.log("i'm change")
+      this.datas = this.userData
+    }
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate');
+  },
+  updated() {
+    console.log('updated');
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+
+
+
+
+
+<!-- <template lang="html">
+  <div class="">
     list
     <ul>
       <li v-for="item in data">
@@ -27,7 +73,7 @@ export default {
 </script>
 
 <style lang="css">
-</style>
+</style> -->
 
 
 

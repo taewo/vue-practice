@@ -1,10 +1,63 @@
 <template lang="html">
   <div class="">
+    <form @submit="submit">
+      name: <input type="text" v-model="userInfo.name"><br />
+      age: <input type="text" v-model="userInfo.age"><br />
+      address: <input type="text" v-model="userInfo.address">
+      <input type="submit" name="" value="제출">
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      userInfo: {
+        name: '',
+        age: '',
+        address: ''
+      }
+    }
+  },
+  props: [
+    'handleSubmit'
+  ],
+  methods: {
+    submit() {
+      this.handleSubmit(this.userInfo)
+      this.userInfo = {
+        name: '',
+        age: '',
+        address: ''
+      }
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+
+
+
+
+<!-- <template lang="html">
+  <div class="">
     <form @submit.prevent>
       <input type="text" v-model="text">
       <input type="submit" @click="check">
-      <input type="button" value="hi" @click="$emit('myEvent')" />
+
+      <input
+        type="button"
+        value="hi"
+        @click="$emit('myEvent')"
+      />
       <input type="button" value="hi" @click="mmm" />
+      <input type="button" value="ddddd" @click="$emit('myCall')">
     </form>
   </div>
 </template>
@@ -30,13 +83,14 @@ export default {
 
     mmm() {
       this.$emit('myEvent2', this.text)
+      this.text = ''
     }
   }
 }
 </script>
 
 <style lang="css">
-</style>
+</style> -->
 
 
 
