@@ -1,4 +1,56 @@
 <template lang="html">
+  <div class="">
+    Todo
+    <Form
+      :handleSubmit="handleSubmit"
+      @myEvent="taewoong"
+      @myEvent2="taewoong2"
+    ></Form>
+    <List
+      :data="data"
+    ></List>
+  </div>
+</template>
+
+<script>
+import Form from './Form'
+import List from './List'
+
+export default {
+  components: {
+    Form,
+    List
+  },
+  data () {
+    return {
+      input: '',
+      data: [],
+    }
+  },
+  methods: {
+    handleSubmit: function(param) {
+      this.data.push(param)
+    },
+
+    taewoong() {
+      alert('hi')
+    },
+
+    taewoong2(vars) {
+      alert(vars)
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+
+
+<!-- <template lang="html">
   <div>
     Todo
     <Form
@@ -35,7 +87,7 @@ export default {
 </script>
 
 <style lang="css">
-</style>
+</style> -->
 
 
 

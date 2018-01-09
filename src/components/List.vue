@@ -1,11 +1,28 @@
 <template lang="html">
   <div class="">
-    List
+    list
+    <ul>
+      <li v-for="item in data">
+        {{item}}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
+  props: [
+    'data'
+  ],
+  created() {
+    // console.log('created', this);
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate', this);
+  },
+  updated() {
+    console.log('updated', this);
+  }
 }
 </script>
 

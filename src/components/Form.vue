@@ -1,5 +1,51 @@
 <template lang="html">
   <div class="">
+    <form @submit.prevent>
+      <input type="text" v-model="text">
+      <input type="submit" @click="check">
+      <input type="button" value="hi" @click="$emit('myEvent')" />
+      <input type="button" value="hi" @click="mmm" />
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      text: ''
+    }
+  },
+  created() {
+    // this.text = this.input
+  },
+  props: [
+    'handleSubmit',
+  ],
+  methods: {
+    check() {
+      this.handleSubmit(this.text)
+      this.text = ""
+    },
+
+    mmm() {
+      this.$emit('myEvent2', this.text)
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+
+
+
+
+<!-- <template lang="html">
+  <div class="">
     Form
     <input
       type="text"
@@ -39,7 +85,7 @@ export default {
 </script>
 
 <style lang="css">
-</style>
+</style> -->
 
 
 
