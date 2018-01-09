@@ -1,10 +1,55 @@
 <template lang="html">
   <div class="">
+    Todo
+    <Form
+      :handleSubmit="handleSubmit"
+    ></Form>
+    <List
+      :allData="allData"
+    ></List>
+  </div>
+</template>
+
+<script>
+import Form from './Form'
+import List from './List'
+export default {
+  components: {
+    Form, List
+  },
+  data() {
+    return {
+      allData: []
+    }
+  },
+  methods: {
+    handleSubmit(params) {
+      console.log('params', params)
+      this.allData.push(params)
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+
+
+
+
+
+
+<!-- <template lang="html">
+  <div class="">
     <Form
       :handleSubmit="handleSubmit"
     ></Form>
     <List
       :userData="userData"
+      :dummy="dummy"
     ></List>
   </div>
 </template>
@@ -19,19 +64,21 @@ export default {
   },
   data() {
     return {
-      userData: []
+      userData: [],
+      dummy: 'taewoong'
     }
   },
   methods: {
     handleSubmit(param) {
       this.userData.push(param)
+      this.dummy += ' hello'
     }
   }
 }
 </script>
 
 <style lang="css">
-</style>
+</style> -->
 
 
 

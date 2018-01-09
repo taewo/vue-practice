@@ -1,6 +1,54 @@
 <template lang="html">
   <div class="">
     <form @submit="submit">
+      <input type="text" v-model="userData.name"><br />
+      <input type="text" v-model="userData.age"><br />
+      <input type="submit" name="" value="제출">
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      userData: {
+        name: '',
+        age: ''
+      }
+    }
+  },
+  methods: {
+    submit() {
+      console.log('submit');
+      this.handleSubmit(this.userData)
+      this.userData = {
+        name: '',
+        age: ''
+      }
+    }
+  },
+  props: [
+    'handleSubmit'
+  ]
+}
+</script>
+
+<style lang="css">
+</style>
+
+
+
+
+
+
+
+
+
+
+<!-- <template lang="html">
+  <div class="">
+    <form @submit="submit">
       name: <input type="text" v-model="userInfo.name"><br />
       age: <input type="text" v-model="userInfo.age"><br />
       address: <input type="text" v-model="userInfo.address">
@@ -38,7 +86,7 @@ export default {
 
 <style lang="css">
 </style>
-
+ -->
 
 
 
